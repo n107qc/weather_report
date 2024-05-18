@@ -1,4 +1,40 @@
+<Weather>
+    padding: 4
+    size_hint: None, None
+    size: "200dp", "100dp"
+
+    MDRelativeLayout:
+
+        MDIconButton:
+            icon: "dots-vertical"
+            pos_hint: {"top": 1, "right": 1}
+
+        MDLabel:
+            id: label
+            text: 'GG'
+            adaptive_size: True
+            color: "grey"
+            pos: "12dp", "12dp"
+            bold: True
+
 <Mainscreen>:
-    padding: 15
-    MDLabel:
-        text: "gg"    
+    MDBoxLayout:
+        padding:'20sp'
+        size_hint: (1,1)
+        pos_hint:{'center_x': 0.5}
+        orientation: 'vertical'
+        spacing: '0sp'
+        MDBoxLayout:
+            size_hint: 1, None
+            orientation: 'horizontal'
+            spacing: '0sp'
+                    
+            MDTextField:
+                hint_text: 'Ведіть місто'
+                mode: 'fill'     
+            MDIconButton:
+                icon: 'magnify'
+                theme_icon_color: 'Custom'
+                icon_color: app.theme_cls.primary_color   
+        Weather:
+            id: weather_card   
