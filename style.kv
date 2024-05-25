@@ -4,6 +4,7 @@
     size: "200dp", "100dp"
 
     MDRelativeLayout:
+        
 
         MDIconButton:
             icon: "dots-vertical"
@@ -19,22 +20,37 @@
 
 <Mainscreen>:
     MDBoxLayout:
-        padding:'20sp'
-        size_hint: (1,1)
-        pos_hint:{'center_x': 0.5}
         orientation: 'vertical'
-        spacing: '0sp'
+        spacing: '20sp'
+        
+        MDTopAppBar:
+            title: 'Weather'
+            left_action_items: [['menu', lambda x: app.callback()]]
+        
         MDBoxLayout:
-            size_hint: 1, None
-            orientation: 'horizontal'
-            spacing: '0sp'
-                    
-            MDTextField:
-                hint_text: 'Ведіть місто'
-                mode: 'fill'     
-            MDIconButton:
-                icon: 'magnify'
-                theme_icon_color: 'Custom'
-                icon_color: app.theme_cls.primary_color   
-        Weather:
-            id: weather_card   
+            padding: '20sp'
+            size_hint: (1, 1)
+            pos_hint: {'center_x': 0.5}
+            orientation: 'vertical'
+            spacing: '25sp'
+            
+            MDBoxLayout:
+                size_hint: 1, None
+                height: '40sp'
+                orientation: 'horizontal'
+                spacing: '20sp'
+                
+                MDTextField:
+                    id: city_field
+                    hint_text: 'Ведіть місто'
+                    mode: 'fill'
+                
+                MDIconButton:
+                    id: search_btn
+                    icon: 'magnify'
+                    theme_icon_color: 'Custom'
+                    icon_color: app.theme_cls.primary_color
+                    on_press: root.weather_search()
+            
+                Weather:
+                    id: weather_card
